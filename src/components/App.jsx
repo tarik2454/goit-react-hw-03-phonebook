@@ -17,12 +17,13 @@ export class App extends Component {
     filter: '',
   };
 
-  componentDidMount() {
-    const contacts = JSON.parse(window.localStorage.getItem('CONTACTS'));
-    if (contacts.length) {
-      this.setState({ contacts });
-    }
+componentDidMount() {
+  const contacts = JSON.parse(window.localStorage.getItem('CONTACTS'));
+  if (contacts && contacts.length) {
+    this.setState({ contacts });
   }
+}
+
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.contacts.length !== this.state.contacts.length) {
